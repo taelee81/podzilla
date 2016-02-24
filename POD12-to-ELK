@@ -1,0 +1,32 @@
+conn mytunnel
+    left=52.8.132.183
+    leftsubnet=10.212.0.0/16
+    right=%defaultroute
+    rightid=52.68.200.26
+    rightsubnet=10.215.0.0/16
+    type=tunnel
+    authby=secret
+    ike=aes256-sha256-modp2048
+    esp=aes256-sha256
+    ikelifetime=28800s
+    salifetime=3600s
+    pfs=yes
+    auto=start
+
+
+conn mytunnel
+    left=%defaultroute
+    leftid=52.8.132.183
+    leftsubnet=10.212.0.0/16
+    right=52.68.200.26
+    rightsubnet=10.215.0.0/16
+    type=tunnel
+    authby=secret
+    ike=aes256-sha256-modp2048
+    esp=aes256-sha256
+    ikelifetime=28800s
+    salifetime=3600s
+    pfs=yes
+    auto=start
+
+52.68.200.26 52.8.132.183 : PSK "<your_secret_psk>"
